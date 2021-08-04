@@ -1,0 +1,25 @@
+const express = require('express');
+const mongoose =require ('mongoose');
+
+const app = express();
+
+
+
+
+
+
+
+
+app.listen(3000,(err) => {
+   if (err){
+    console.log('Server Port Wend To Wrong!');
+   }else{
+       console.log('Server Run Port 3000!');
+   }
+});
+
+
+mongoose.connect('mongodb://localhost:27017/subscribe', {useNewUrlParser: true});
+const db = mongoose.connection
+db.on('error' , (error)=>console.log(error))
+db.once('open', ()=>console.log('Connection to Database'))
